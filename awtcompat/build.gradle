@@ -2,12 +2,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 30
+    namespace "org.librepdf.openpdf.android.awtcompat"
+    compileSdkVersion 36
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0.0"
+        minSdkVersion 24
+        targetSdkVersion 36
     }
     buildTypes {
         release {
@@ -18,11 +17,14 @@ android {
     publishing {
         singleVariant("release") {}
     }
-    ndkVersion "22.0.7026061"
+    ndkVersion "29.0.13599879"
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
         }
+    }
+    buildFeatures {
+        buildConfig true
     }
 }
 
